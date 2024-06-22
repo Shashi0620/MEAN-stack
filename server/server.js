@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require('mongoose');
 const userRoute = require('./src/routes/user.route')
+const universityRouter = require('./src/routes/university.route')
 var app = express()
 require('dotenv').config();
 
@@ -17,11 +18,13 @@ database.once('connected', () => {
     console.log('Database Connected');
 })
 
-app.get("/",function(request,response){
-response.send("Hello World!")
-})
+// app.get("/",function(request,response){
+// response.send("Hello World!")
+// })
+
 app.use(express.json());
 app.use('/api', userRoute)
+app.use('/api/university', universityRouter)
 
 app.listen(3000, function () {
 console.log("Started application on port %d", 3000)
