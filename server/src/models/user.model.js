@@ -6,6 +6,21 @@ const dataSchema = new mongoose.Schema({
         type: String
     },
     age: {
+        required: false,
+        type: Number
+    },
+    phoneNumber: {
+        required: true,
+        type: Number
+    },
+    email: {
+        required: true,
+        type: String,
+        lowercase: true,
+        unique: true,
+        required: 'Email address is required'
+    },
+    pincode: {
         required: true,
         type: Number
     }
